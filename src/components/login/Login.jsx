@@ -1,20 +1,19 @@
 import { Form, useNavigate } from "react-router-dom";
 import loginApi from "../../api/loginApi";
 import { useState } from "react";
-import { useUser } from "../../contexts/UserContext";
 
 function changeRouter(identity) {
   switch (identity) {
     case "student": {
-      return "auth/student/";
+      return "home/student/";
     }
 
     case "teacher": {
-      return "auth/teacher/";
+      return "home/teacher/";
     }
 
     case "admin": {
-      return "auth/admin/";
+      return "home/admin/";
     }
 
     default: {
@@ -29,8 +28,6 @@ function Login() {
     password: "",
   });
 
-  const { user, dispatch } = useUser();
-
   const navigate = useNavigate();
 
   async function onLogin(e) {
@@ -38,11 +35,6 @@ function Login() {
 
     try {
       let userData = await loginApi(formData);
-
-      dispatch({
-        type: "login",
-        value: userData,
-      });
 
       let path = changeRouter(userData.identity);
 
