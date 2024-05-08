@@ -4,6 +4,7 @@ import StudentPage from "./components/login/components/home/studentPage/StudentP
 import TeacherPage from "./components/login/components/home/teacherPage/TeacherPage";
 import AdminPage from "./components/login/components/home/adminPage/AdminPage";
 import RouterAuth from "./components/login/components/AuthPage";
+import ErrorPage from "./components/error/errorPage";
 
 const router = createBrowserRouter([
   { path: "/", element: <Login /> },
@@ -14,9 +15,9 @@ const router = createBrowserRouter([
       { path: "student", element: <StudentPage /> },
       { path: "teacher", element: <TeacherPage /> },
       { path: "admin", element: <AdminPage /> },
-      { path: "*", element: <Navigate to="/" /> },
     ],
   },
+  { path: "/*", element: <ErrorPage /> },
 ]);
 
 export default router;
