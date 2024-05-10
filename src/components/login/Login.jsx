@@ -6,15 +6,15 @@ import "../css/login.css";
 function changeRouter(identity) {
   switch (identity) {
     case "student": {
-      return "home/student/";
+      return "/home/student/";
     }
 
     case "teacher": {
-      return "home/teacher/";
+      return "/home/teacher/";
     }
 
     case "admin": {
-      return "home/admin/";
+      return "/home/admin/";
     }
 
     default: {
@@ -48,11 +48,11 @@ function Login() {
       let userData = await loginApi(formData);
 
       let path = changeRouter(userData.identity);
-
       navigate(path);
     } catch (error) {
       console.log(error);
-      navigate("/");
+      alert("帳號或密碼輸入錯誤");
+      setFormData({ ...formData, password: "" });
     }
   }
 
