@@ -6,6 +6,7 @@ import TeacherPage from "./components/login/components/home/teacherPage/TeacherP
 import AdminPage from "./components/login/components/home/adminPage/AdminPage";
 import RouterAuth from "./components/login/components/AuthPage";
 import ErrorPage from "./components/error/errorPage";
+import ChangeUserData from "./components/login/components/home/adminPage/ChangeUserData/ChangeUserData";
 
 const router = createBrowserRouter([
   { path: "/", element: <Firstedge /> },
@@ -14,13 +15,13 @@ const router = createBrowserRouter([
     path: "/home",
     element: <RouterAuth />,
     children: [
-      {
-        path: "student",
-        element: <StudentPage />,
-        children: [{ path: "aaa", element: <div>aaa</div> }],
-      },
+      { path: "student", element: <StudentPage /> },
       { path: "teacher", element: <TeacherPage /> },
-      { path: "admin", element: <AdminPage /> },
+      {
+        path: "admin",
+        element: <AdminPage />,
+        children: [{ path: "changeUserData", element: <ChangeUserData /> }],
+      },
     ],
   },
   { path: "/*", element: <ErrorPage /> },

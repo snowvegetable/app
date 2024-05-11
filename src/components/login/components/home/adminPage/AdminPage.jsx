@@ -1,8 +1,10 @@
+import { Outlet } from "react-router-dom";
 
 function AdminPage() {
   return (
     <div>
-      <p>admin</p>
+      <div>fdsfds</div>
+      <Outlet />
     </div>
   );
 }
