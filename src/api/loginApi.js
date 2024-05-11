@@ -56,9 +56,8 @@ export default async function loginApi({ account, password }) {
         let data = await response.json();
 
         localStorage.setItem("token", data.access_token);
-        localStorage.setItem("identity", data.identity);
-        return data;
+        return data.identity;
     } catch (e) {
-        throw new Error("帳號或密碼輸入錯誤");
+        throw new Error("網路異常");
     }
 }

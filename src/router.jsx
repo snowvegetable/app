@@ -8,18 +8,22 @@ import RouterAuth from "./components/login/components/AuthPage";
 import ErrorPage from "./components/error/errorPage";
 
 const router = createBrowserRouter([
-    { path: "/", element: <Firstedge /> },
-    { path: "/login", element: <Login /> },
-    {
-        path: "/home",
-        element: <RouterAuth />,
-        children: [
-            { path: "student", element: <StudentPage /> },
-            { path: "teacher", element: <TeacherPage /> },
-            { path: "admin", element: <AdminPage /> },
-        ],
-    },
-    { path: "/*", element: <ErrorPage /> },
+  { path: "/", element: <Firstedge /> },
+  { path: "/login", element: <Login /> },
+  {
+    path: "/home",
+    element: <RouterAuth />,
+    children: [
+      {
+        path: "student",
+        element: <StudentPage />,
+        children: [{ path: "aaa", element: <div>aaa</div> }],
+      },
+      { path: "teacher", element: <TeacherPage /> },
+      { path: "admin", element: <AdminPage /> },
+    ],
+  },
+  { path: "/*", element: <ErrorPage /> },
 ]);
 
 export default router;
