@@ -64,43 +64,53 @@ function Login() {
     };
 
     return (
-
-        <div className="login-container">
-            <div className="login-box" style={loginBoxStyle}>
-                <div className="Login_text">Login</div>
-                <Form action="login" method="post">
-                    <input
-                        type="text"
-                        name="account"
-                        value={formData.account}
-                        onChange={(e) =>
-                            setFormData({
-                                ...formData,
-                                account: e.target.value,
-                            })
-                        }
-                        placeholder="帳號"
-                    />
-                    <input
-                        type="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={(e) =>
-                            setFormData({
-                                ...formData,
-                                password: e.target.value,
-                            })
-                        }
-                        placeholder="密碼"
-                    />
-                    <button
-                        type="submit"
-                        className="login_btn"
-                        onClick={onLogin}
-                    >
-                        登入
-                    </button>
-                </Form>
+        <div>
+            <div className="navbar">
+                <button className="home_btn">最新消息</button>
+                <button className="home_btn">簡答題評分系統</button>
+                <button className="home_btn">關於我們</button>
+                <button className="home_btn">聯絡我們</button>
+                <button className="home_btn" onClick={() => navigate("/login")}>
+                    登入
+                </button>
+            </div>
+            <div className="login-container">
+                <div className="login-box" style={loginBoxStyle}>
+                    <div className="Login_text">Login</div>
+                    <Form action="login" method="post">
+                        <input
+                            type="text"
+                            name="account"
+                            value={formData.account}
+                            onChange={(e) =>
+                                setFormData({
+                                    ...formData,
+                                    account: e.target.value,
+                                })
+                            }
+                            placeholder="帳號"
+                        />
+                        <input
+                            type="password"
+                            name="password"
+                            value={formData.password}
+                            onChange={(e) =>
+                                setFormData({
+                                    ...formData,
+                                    password: e.target.value,
+                                })
+                            }
+                            placeholder="密碼"
+                        />
+                        <button
+                            type="submit"
+                            className="login_btn"
+                            onClick={onLogin}
+                        >
+                            登入
+                        </button>
+                    </Form>
+                </div>
             </div>
         </div>
     );

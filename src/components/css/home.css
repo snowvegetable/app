@@ -24,3 +24,47 @@ body {
 .home_btn:hover {
     transform: scale(1.1);
 }
+
+.image-slider {
+    position: relative;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.slide-container {
+    display: flex;
+    overflow: hidden;
+}
+
+.slide {
+    flex: 0 0 auto;
+    transition: transform 0.5s ease;
+}
+
+.slide img {
+    width: 100%;
+}
+
+.slide.active {
+    transform: translateX(0);
+}
+
+.dot-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #555;
+}
