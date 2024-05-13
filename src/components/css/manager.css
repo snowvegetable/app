@@ -79,3 +79,50 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+/* 模態對話框背景 */
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 45%; /* 設置模態對話框的位置 */
+    top: 30%;
+    transform: translate(-50%, -50%); /* 將模態對話框居中 */
+    width: auto;
+    height: auto;
+}
+
+/* 模態對話框內容 */
+.modal-content {
+  background-color: #fefefe; /* 白色背景 */
+  margin: 15% auto; /* 居中對齊 */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* 設置模態對話框寬度 */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* 添加陰影效果 */
+}
+
+/* 關閉按鈕 */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.background-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px); /* 模糊化背景 */
+    z-index: 0; /* 確保背景元素位於最底層 */
+}
+  
