@@ -27,7 +27,7 @@
 //     });
 // }
 
-export default async function loginApi({ account, password }) {
+export default async function loginApi({account, password}) {
     const formData = new FormData();
 
     formData.append("grant_type", "");
