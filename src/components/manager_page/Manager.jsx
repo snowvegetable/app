@@ -2,15 +2,9 @@
 
 import React, { useState } from "react";
 import "../css/manager.css";
-import Modal from '../../api/Modal'; // 將路徑更改為 Modal 所在的正確位置
-
-
 
 function AdminPanel() {
-
     const [tab, setTab] = useState("users");
-    const [isOpen, setIsOpen] = useState(false);
-    const [selectedUser, setSelectedUser] = useState(null);
 
     const handleTabChange = (tabName) => {
         setTab(tabName);
@@ -31,15 +25,6 @@ function AdminPanel() {
     const students = [
         { "user_id": 3, "user_name": "User3", "password": "JNxcv0bx", "identity": "student" }
     ];
-
-    const openPopup = (user) => {
-        setSelectedUser(user);
-        setIsOpen(true);
-    };
-
-    const closePopup = () => {
-        setIsOpen(false);
-    };
 
     return (
         <div className="admin-panel">
@@ -64,12 +49,7 @@ function AdminPanel() {
                 </button>
             </div>
             <div className="showbox">
-                {tab === "users" && (
-                    <>
-                        <UserManagement users={users} openPopup={openPopup} />
-                        <Modal isOpen={isOpen} onClose={closePopup} user={selectedUser} />
-                    </>
-                )}
+                {tab === "users" && <UserManagement users={users} />}
                 {tab === "teachers" && <TeacherManagement teachers={teachers} />}
                 {tab === "students" && <StudentManagement students={students} />}
             </div>
@@ -77,7 +57,13 @@ function AdminPanel() {
     );
 }
 
-const UserManagement = ({ users, openPopup }) => {
+const UserManagement = ({ users }) => {
+    // 彈出視窗函數
+    const openPopup = (userId) => {
+        // 在這裡實現打開視窗的邏輯
+        alert(`打開用戶 ${userId} 的資料更新視窗`);
+    };
+
     return (
         <div className="user-management">
             <h2>用戶管理</h2>
@@ -99,7 +85,7 @@ const UserManagement = ({ users, openPopup }) => {
                             <td className="table-cell">{user.password}</td>
                             <td className="table-cell">{user.identity}</td>
                             <td className="table-cell">
-                                <button className="update-button" onClick={() => openPopup(user)}>更新</button>
+                                <button className="update-button" onClick={() => openPopup(user.user_id)}>更新</button>
                             </td>
                         </tr>
                     ))}
@@ -121,6 +107,7 @@ function TeacherManagement({ teachers }) {
         </div>
     );
 }
+
 
 function StudentManagement() {
     return (
