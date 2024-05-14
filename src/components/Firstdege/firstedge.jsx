@@ -8,11 +8,24 @@ function App() {
   return (
     <div>
       <div className="navbar">
-        <button className="home_btn">最新消息</button>
-        <button className="home_btn">簡答題評分系統</button>
-        <button className="home_btn">關於我們</button>
-        <button className="home_btn">聯絡我們</button>
+        <button className="home_btn">
+          <img src="/img/news_icon.svg" style={{ verticalAlign: 'middle' }} className="icon" />
+          最新消息
+        </button>
+        <button className="home_btn">
+          <img src="/img/quiz_icon.svg" style={{ verticalAlign: 'middle' }} className="icon" />
+          簡答題評分系統
+        </button>
+        <button className="home_btn">
+          <img src="/img/about_icon.svg" style={{ verticalAlign: 'middle' }} className="icon" />
+          關於我們
+        </button>
+        <button className="home_btn">
+          <img src="/img/contact_icon.svg" style={{ verticalAlign: 'middle' }} className="icon" />
+          聯絡我們
+        </button>
         <button className="home_btn" onClick={() => navigate("/login")}>
+          <img src="/img/login_icon.svg" style={{ verticalAlign: 'middle' }} className="icon" />
           登入
         </button>
       </div>
