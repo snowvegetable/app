@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "../css/home.css";
 import { useNavigate } from "react-router-dom";
+import fontawesome from '@fortawesome/fontawesome'
+import { faFileAlt, faNewspaper, faInfoCircle, faEnvelope, faSignInAlt } from '@fortawesome/fontawesome-free-solid'
+ 
+fontawesome.library.add(faFileAlt, faNewspaper, faInfoCircle, faEnvelope, faSignInAlt)
+
 
 function App() {
   let navigate = useNavigate();
@@ -9,24 +14,19 @@ function App() {
     <div>
       <div className="navbar">
         <button className="home_btn">
-          <img src="/img/news_icon.svg" style={{ verticalAlign: 'middle' }} className="icon" />
-          最新消息
+          <i className="fas fa-newspaper"></i>最新消息
         </button>
         <button className="home_btn">
-          <img src="/img/quiz_icon.svg" style={{ verticalAlign: 'middle' }} className="icon" />
-          簡答題評分系統
+          <i className="fas fa-file-alt"></i> 簡答題評分系統
         </button>
         <button className="home_btn">
-          <img src="/img/about_icon.svg" style={{ verticalAlign: 'middle' }} className="icon" />
-          關於我們
+          <i className="fas fa-info-circle"></i> 關於我們
         </button>
         <button className="home_btn">
-          <img src="/img/contact_icon.svg" style={{ verticalAlign: 'middle' }} className="icon" />
-          聯絡我們
+          <i className="fas fa-envelope"></i> 聯絡我們
         </button>
         <button className="home_btn" onClick={() => navigate("/login")}>
-          <img src="/img/login_icon.svg" style={{ verticalAlign: 'middle' }} className="icon" />
-          登入
+          <i className="fas fa-sign-in-alt"></i> 登入
         </button>
       </div>
       <ImageSlider />
