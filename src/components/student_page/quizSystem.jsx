@@ -1,36 +1,54 @@
 import { useState } from "react";
+import "../css/quiz_page.css";
 
-const QuizSystem = () => {
-    const [answer, setAnswer] = useState("");
+function quizSystem() {
+  const [question,setQuestion] = useState("問題");
+  const [anwser,setAnwser] = useState("答案");
+  const [result,setResult] = useState("結果"); // [question,anwser,result]
 
-    const handleAnswerChange = (event) => {
-        setAnswer(event.target.value);
-    };
+  const API = "";
+  const handleSubmit = async(event) =>{
+      event.preventDefault();
+      try {
+          let res = await fetch(API, {
+            method: "POST",
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              question,
+              anwser
+            }),
+          });
+          let data = await res.json();
+          if (res.status === 200) {
+            setResult(data.result);
+          } else {
+            
+          }
+      } catch (err) {
+        console.log(err);
+      }
+  }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // 清空答案输入框
-        setAnswer("");
-        // 在这里处理提交答案的逻辑
-        // 可以将答案发送到服务器进行验证，并根据验证结果更新页面上的结果位置
-    };
-
-    return (
-        <div>
-            <h1>這是答題頁面</h1>
-            <div>
-                {/* 显示题目的位置 */}
-                題目
-            </div>
-            <form onSubmit={handleSubmit}>
-                <input type="text" value={answer} onChange={handleAnswerChange} />
-                <button type="submit">提交答案</button>
-            </form>
-            <div>
-                {/* 显示答案结果的位置 */}
-            </div>
+  return (
+    <div className="container">
+      <h1>Quiz System</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="question">{question}</div>
+        <div className="answer-input">
+          <input
+            type="text"
+            value={anwser}
+            onChange={(e) => setAnwser(e.target.value)}
+            placeholder="輸入你的答案"
+          />
+          <button type="submit">送出</button>
         </div>
-    );
-};
+      </form>
+      <div className="result">{result}</div>
+    </div>
+  );
+}
 
-export default QuizSystem;
+export default quizSystem;
