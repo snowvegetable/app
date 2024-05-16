@@ -8,12 +8,13 @@ import { useState } from "react";
 import FeedbackReport from "./feedbackReport";
 import QuizSystem from "./quizSystem";
 import QuizHistory from "./quizHistory";
+import "../css/student.css";
 
 function Student_Page(){
     const [page,setPage] =  useState('home');
     return(
         <>
-            <div>
+            <div className="nav">
                 <nav>
                     <ul>
                         <h1>Student Page</h1>
