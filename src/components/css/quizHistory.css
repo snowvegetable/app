@@ -1,0 +1,40 @@
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+.question {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.ans,
+.myAns,
+.score {
+    margin-bottom: 5px;
+}
+
+.ans {
+    color: green;
+}
+
+.myAns {
+    color: blue;
+}
+
+.score {
+    font-weight: bold;
+}
