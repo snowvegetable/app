@@ -36,10 +36,10 @@ function Login() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsVisible(true);
-        }, 1000); // 1 秒後顯示登入框
+        }, 1000);
 
         return () => clearTimeout(timer);
-    }, []); // 空依賴表示僅在組件首次渲染時執行
+    }, []);
 
     async function onLogin(e) {
         e.preventDefault();
